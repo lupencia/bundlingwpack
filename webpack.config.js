@@ -1,13 +1,31 @@
 var HtmlWebpackplugin = require('html-webpack-plugin');
+var MiniCssExtractlugin = require('mini-css-extract-plugin');
 var webpack =require('webpack');
 
 module.exports = {
-    entry: [
-        '@babel/polyfill',
-        './students.js'
-    ],
+    entry: {
+        app: './students.js',
+        appStyles: './style.css',
+
+        vendor: [
+            '@babel/polyfill',
+            'jquery',
+        ]
+    },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].[chunkhash].bundle.js',
+    },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    chunks: 'initial',
+                    name:'vendor',
+                    test: 'vendor',
+                    enforce: true,
+                }
+            }    
+        }
     },
     devServer: {
         port:8081,
@@ -18,6 +36,20 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
+            },
+
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: MiniCssExtractlugin.loader,              
+                    },
+                    {
+                        loader: 'css-loader',              
+                    }
+                ]
+
             }
         ]
     },
@@ -28,8 +60,12 @@ module.exports = {
             hash: true,
         }),
         new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
+            $: 'jquery',
+            jQuery: 'jquery',
+        }),
+        new MiniCssExtractlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css'
         })
     ]
 }

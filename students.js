@@ -1,6 +1,6 @@
 import {getAvg} from './averageService';
 
-$('body').css('background-color', 'graylight');
+$('body').css('background-color', 'red');
 
 //let's use some ES6 features
 const scores = [90, 50, 40, 78, 60];
