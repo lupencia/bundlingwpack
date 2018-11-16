@@ -3,8 +3,9 @@ var MiniCssExtractlugin = require('mini-css-extract-plugin');
 var webpack =require('webpack');
 
 module.exports = {
+    stats: 'errors-only',
     entry: {
-        app: './students.js',
+        app: './favColor.js',
         appStyles: './style.css',
 
         vendor: [

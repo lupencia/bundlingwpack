@@ -1,7 +1,7 @@
-export function getAvg(scores) {
-    return getTotalScore(scores) / scores.length;
+export function getAvg(color) {
+    return getTotalScore(color) / color.length;
 }
 
-function getTotalScore(scores) {
-    return scores.reduce((score, count) => score + count);
+function getTotalScore(colors) {
+    return colors.reduce((color, count) => color + count);
 }

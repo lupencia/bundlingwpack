@@ -147,7 +147,7 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./students.js","vendor"]);
+/******/ 	deferredModules.push(["./favColor.js","vendor"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
@@ -162,19 +162,19 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getAvg\", function() { return getAvg; });\nfunction getAvg(scores) {\n  return getTotalScore(scores) / scores.length;\n}\n\nfunction getTotalScore(scores) {\n  return scores.reduce(function (score, count) {\n    return score + count;\n  });\n}\n\n//# sourceURL=webpack:///./averageService.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getAvg\", function() { return getAvg; });\nfunction getAvg(color) {\n  return getTotalScore(color) / color.length;\n}\n\nfunction getTotalScore(colors) {\n  return colors.reduce(function (color, count) {\n    return color + count;\n  });\n}\n\n//# sourceURL=webpack:///./averageService.js?");
 
 /***/ }),
 
-/***/ "./students.js":
+/***/ "./favColor.js":
 /*!*********************!*\
-  !*** ./students.js ***!
+  !*** ./favColor.js ***!
   \*********************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var _averageService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./averageService */ \"./averageService.js\");\n\n$('body').css('background-color', 'red'); //let's use some ES6 features\n\nvar scores = [90, 50, 40, 78, 60];\nvar averageScore = \"90\";\nvar messageToDisplay = \"average score \".concat(averageScore);\ndocument.write(messageToDisplay);\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./students.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var _averageService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./averageService */ \"./averageService.js\");\n\n$('body').css('background-color', 'red'); //let's use some ES6 features\n\nvar color = [\"green\", \"red\", \"blue\"];\nvar favColor = \"90\";\nvar messageToDisplay = \"my fav color is \".concat(favColor);\ndocument.write(messageToDisplay);\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./favColor.js?");
 
 /***/ })
 
